@@ -1,6 +1,7 @@
 import React from 'react'
-import {img_300, unavailable} from "../config/config"
+import {img_300, unavailable} from "../../config/config"
 import "./singlecontent.css"
+import { Badge } from '@mui/material'
 
 const SingleContent = (
     {
@@ -12,7 +13,11 @@ const SingleContent = (
         vote_average,
     }) => {
   return (
-    <div>
+    <div className='media'>
+      <Badge
+        badgeContent={vote_average}
+        color={vote_average > 6 ? "primary" : "secondary"}
+      />
    <img
         className="poster"
         src={poster ? `${img_300}${poster}` : unavailable}
