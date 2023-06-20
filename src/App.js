@@ -2,10 +2,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import SimpleBottomNavigation from './components/MainNv';
 import Header from './components/header/header';
-import trending from './pages/trending/trending';
-import movies from './pages/movies/movies';
-import search from './pages/search/search';
-import series from './pages/series/series';
+import Trending from './pages/trending/trending';
+import Movies from './pages/movies/movies';
+import Search from './pages/search/search';
+import Series from './pages/series/series';
 import { Container } from '@mui/material';
 
 function App() {
@@ -15,10 +15,10 @@ function App() {
     <div className="app">
       <Container>
         <Routes>
-          <Route path="/" component={trending} exact />
-          <Route path="/movies" component={movies} />
-          <Route path="/series" component={series} />
-          <Route path="/search" component={search} />
+          <Route path="/" element={<Trending />} exact />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/series" element={<Series />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </Container>
     </div>

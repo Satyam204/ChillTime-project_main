@@ -1,11 +1,11 @@
 import React from 'react'
 
-const series = () => {
+const Series = () => {
   return (
     <div>
-      <span className=''>Series</span>
+      <span className='pageTitle'>Series</span>
     </div>
   )
 }
 
-export default series
+export default Series

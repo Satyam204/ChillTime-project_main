@@ -1,6 +1,6 @@
 import React from 'react'
 
-const trending = () => {
+const Trending = () => {
   return (
     <div>
         <span className='pageTitle'>Trending</span>
@@ -8,4 +8,4 @@ const trending = () => {
   )
 }
 
-export default trending
+export default Trending

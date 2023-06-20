@@ -1,11 +1,11 @@
 import React from 'react'
 
-const movies = () => {
+const Movies = () => {
   return (
     <div>
-        <span className=''>Movies</span>
+        <span className='pageTitle'>Movies</span>
     </div>
   )
 }
 
-export default movies
+export default Movies
