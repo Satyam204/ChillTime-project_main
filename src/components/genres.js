@@ -45,20 +45,21 @@ const Genres = ({
       <div style={{ padding: "6px 0" }}>
         {selectedGenres.map((genre) => (
           <Chip
-            style={{ margin: 2 }}
+            style={{ margin: 4 }}
             label={genre.name}
             key={genre.id}
-            color="primary"
+            color="success"
             clickable
-            size="small"
+            size="large"
             onDelete={() => handleRemove(genre)}
           />
         ))}
         {genres.map((genre) => (
-          <Chip
+          <Chip 
             style={{ margin: 2 }}
             label={genre.name}
             key={genre.id}
+            color="primary"
             clickable
             size="small"
             onClick={() => handleAdd(genre)}
