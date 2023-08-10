@@ -1,26 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import SingleContent from '../../components/singlecontent/singlecontent';
-import CustomPagination from '../../components/pagination/custompagination';
 import Genres from '../../components/genres'
 import useGenre from '../../hooks/useGenre'
 
 const Series = () => {
   const [genres, setGenres] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
-  const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
-  const [numOfPages, setNumOfPages] = useState();
   const genreforURL = useGenre(selectedGenres);
   // console.log(selectedGenres); api is not working properly not giving gener or i am not able to process it here but its working fine in movies part
 
 
   const fetchSeries = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`
+      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_genres=${genreforURL}`
     );
     setContent(data.results);
-    setNumOfPages(data.total_pages);
     // console.log(data);
   };
 
@@ -28,7 +24,7 @@ const Series = () => {
     window.scroll(0, 0);
     fetchSeries();
     // eslint-disable-next-line
-  }, [genreforURL, page]);
+  }, [genreforURL]);
 
   return (
     <div>
@@ -39,7 +35,6 @@ const Series = () => {
         setSelectedGenres={setSelectedGenres}
         genres={genres}
         setGenres={setGenres}
-        setPage={setPage}
       />
       <div className="trending">
         {content &&
@@ -55,9 +50,6 @@ const Series = () => {
             />
           ))}
       </div>
-      {numOfPages > 1 && (
-        <CustomPagination setPage={setPage} numOfPages={numOfPages} />
-      )}
     </div>
   );
 };

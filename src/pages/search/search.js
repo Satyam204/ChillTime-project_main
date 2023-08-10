@@ -1,8 +1,6 @@
 import {
   Button,
   createTheme,
-  Tab,
-  Tabs,
   TextField,
   ThemeProvider,
 } from "@mui/material";
@@ -11,14 +9,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SingleContent from '../../components/singlecontent/singlecontent';
-import CustomPagination from '../../components/pagination/custompagination';
 
 const Search = () => {
+   // eslint-disable-next-line
   const [type, setType] = useState(0);
   const [searchText, setSearchText] = useState("");
-  const [page, setPage] = useState(1);
   const [content, setContent] = useState([]);
-  const [numOfPages, setNumOfPages] = useState();
  
   const darkTheme = createTheme({
     palette: {
@@ -34,10 +30,9 @@ const Search = () => {
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
           process.env.REACT_APP_API_KEY
-        }&language=en-US&query=${searchText}&page=${page}&include_adult=false`
+        }&language=en-US&query=${searchText}&include_adult=false`
       );
       setContent(data.results);
-      setNumOfPages(data.total_pages);
       // console.log(data);
     } catch (error) {
       console.error(error);
@@ -48,7 +43,7 @@ const Search = () => {
     window.scroll(0, 0);
     fetchSearch();
     // eslint-disable-next-line
-  }, [type, page]);
+  }, [type]);
 
   return (
     <div>
@@ -69,20 +64,20 @@ const Search = () => {
             <SearchIcon fontSize="large" />
           </Button>
         </div>
-        <Tabs
+        {/* <Tabs
           value={type}
           indicatorColor="primary"
           textColor="primary"
           onChange={(event, newValue) => {
             setType(newValue);
-            setPage(1);
+          
           }}
           style={{ paddingBottom: 5 }}
           aria-label="disabled tabs example"
         >
           <Tab style={{ width: "50%" }} label="Search Movies" />
           <Tab style={{ width: "50%" }} label="Search TV Series" />
-        </Tabs>
+        </Tabs> */}
       </ThemeProvider>
       <div className="trending">
         {content &&
@@ -101,9 +96,6 @@ const Search = () => {
           !content &&
           (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
       </div>
-      {numOfPages > 1 && (
-        <CustomPagination setPage={setPage} numOfPages={numOfPages} />
-      )}
     </div>
   );
 };

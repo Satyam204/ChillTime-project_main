@@ -9,12 +9,10 @@ const Genres = ({
     genres,
     setGenres,
     type,
-    setPage,
   }) => {
     const handleAdd = (genre) => {
       setSelectedGenres([...selectedGenres, genre]);
       setGenres(genres.filter((g) => g.id !== genre.id));
-      setPage(1);
     };
   
     const handleRemove = (genre) => {
@@ -22,7 +20,6 @@ const Genres = ({
         selectedGenres.filter((selected) => selected.id !== genre.id)
       );
       setGenres([...genres, genre]);
-      setPage(1);
     };
   
     const fetchGenres = async () => {
