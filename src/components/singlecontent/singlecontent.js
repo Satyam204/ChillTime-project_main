@@ -49,8 +49,8 @@ const SingleContent = (
       variant="contained"
       color="primary"
       target="__blank"
-      href={`https://www.youtube.com/watch?v=${video}`}
-      >Watch trailer</Button>
+      href={`https://bollywood.eu.org/?type=search&page=1&name=${title}&cat=${media_type}`}
+      >Download Movie</Button>
     </div>
   )
 }
