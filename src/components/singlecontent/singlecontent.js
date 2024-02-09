@@ -50,7 +50,7 @@ const SingleContent = (
       variant="contained"
       color="primary"
       target="__blank"
-      href={`https://bollywood.eu.org/?type=search&page=1&name=${title}&cat=${media_type}`}
+      href={`https://bollywood.eu.org/?type=${media_type}&id=${id}`}
 
       >Download</Button></div>
     </div>
