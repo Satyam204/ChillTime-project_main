@@ -8,7 +8,7 @@ const darkTheme=createTheme({
   });
 
 
-export default function CustomPagination({ setPage, numOfPages = 10 }){
+export default function CustomPagination({ setPage, numOfPages = 100 }){
 
     const handlePageChange = (page) => {
         setPage(page);
@@ -19,12 +19,11 @@ export default function CustomPagination({ setPage, numOfPages = 10 }){
     <div>
         <ThemeProvider theme={darkTheme}>
             <br></br>
-        <Pagination  
+        <Pagination 
        onChange={(e) => handlePageChange(e.target.textContent)}
        count={numOfPages}
+       variant="outlined" 
        color="primary"
-       hideNextButton
-       hidePrevButton
       />
         </ThemeProvider>
       
