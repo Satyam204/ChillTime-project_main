@@ -50,9 +50,9 @@ const SingleContent = (
       variant="contained"
       color="primary"
       target="__blank"
-      href={`https://bollywood.eu.org/?type=${media_type}&id=${id}`}
+      href={`https://binged.in/watch/movie/${id}`}
 
-      >Download</Button></div>
+      >Watch Now</Button></div>
     </div>
   )
 }

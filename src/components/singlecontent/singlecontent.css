@@ -44,11 +44,12 @@
 
   .dbutton
   {
-    position: absolute;
-  bottom: 10px; /* Adjust the distance from the bottom */
-  left: 50%; /* Align the button horizontally */
+    position:relative;
+    text-align:start;
+  bottom: -10px; /* Adjust the distance from the bottom */
+  left: 60%; /* Align the button horizontally */
   transform: translateX(-50%); /* Center the button horizontally */
-  padding: 2px 20px; /* Adjust padding as needed */
+  padding: 1px 20px; /* Adjust padding as needed */
   color: #fff; /* Example text color */
   cursor: pointer;
   }
